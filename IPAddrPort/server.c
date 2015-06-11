@@ -1,6 +1,3 @@
-//service.c
-//http://www.cnblogs.com/ymy124/archive/2012/04/22/2465599.html
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -10,7 +7,7 @@
 #include<arpa/inet.h>
 #include<netinet/in.h>
 #define  SERADDR "127.0.0.1"
-#define IP "10.5.5.9"
+
 int main(int ar, char**argv) {
         int fd1, fd2;
         char *s;
@@ -30,7 +27,8 @@ int main(int ar, char**argv) {
         local_addr.sin_family = AF_INET;
         local_addr.sin_port = htons(50126);
 
-        inet_pton(AF_INET, IP, (void*) &server_ip);
+        inet_pton(AF_INET, "192.168.11.215", (void*) &server_ip);
+        //inet_pton(AF_INET, "10.10.1.103", (void*) &server_ip);
         local_addr.sin_addr.s_addr = server_ip;
 
 
@@ -64,4 +62,4 @@ int main(int ar, char**argv) {
         return 0;
 
 }
-                 
+    

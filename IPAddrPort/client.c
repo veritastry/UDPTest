@@ -9,10 +9,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
-
-#define PORT 8554 
+#define PORT 50126
 #define MAXDATASIZE 100
-#define IP = "10.5.5.9"
 
 int main(int argc, char *argv[])
 {
@@ -31,7 +29,7 @@ int server_ip1;
 bzero(&self,sizeof(self));
 self.sin_family = AF_INET;
 self.sin_port = htons(PORT);
-inet_pton(AF_INET, IP, (void*) &server_ip1);
+inet_pton(AF_INET, "192.168.11.215", (void*) &server_ip1);
         server.sin_addr.s_addr = server_ip1;
 
 bind(fd1,(struct sockaddr*)&self,sizeof(self));
@@ -40,7 +38,7 @@ int server_ip;
 bzero(&server,sizeof(server));
 server.sin_family = AF_INET;
 server.sin_port = htons(PORT);
-inet_pton(AF_INET, IP, (void*) &server_ip);
+inet_pton(AF_INET, "192.168.11.215", (void*) &server_ip);
         server.sin_addr.s_addr = server_ip;
 
         socklen_t len;
